@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:09:39 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/13 10:18:59 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:28:15 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <mlx.h>
 # include "/get_next_line/get_next_line.h"
+# include "/ft_printf/ft_printf.h"
+# include "/libft/libft.h"
 
 typedef struct s_data
 {

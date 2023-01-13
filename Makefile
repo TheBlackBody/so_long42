@@ -6,18 +6,18 @@
 #    By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:25:14 by sfernand          #+#    #+#              #
-#    Updated: 2023/01/13 10:31:05 by sfernand         ###   ########.fr        #
+#    Updated: 2023/01/13 16:56:14 by sfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long.a
+NAME = so_long
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-FILES = windows /
+FILES = windows 
 
 
 SRCS_DIR = ./
@@ -33,7 +33,7 @@ OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
-	$(AR) $@ $^
+	gcc $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework Appkit -o $(NAME)
 
 all: $(NAME)
 

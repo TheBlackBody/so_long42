@@ -6,9 +6,15 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:25:14 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/13 10:21:09 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:23:13 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int main()
+{
+    void *mlx_ptr;
+    
+    mlx_ptr = mlx_init();
+}

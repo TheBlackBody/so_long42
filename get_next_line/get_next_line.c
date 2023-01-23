@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfernand <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 15:45:05 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/06 20:06:17 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:09:31 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+
+#include "./get_next_line.h"
 
 char	*join(char *res, char *buffer)
 {

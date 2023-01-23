@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   windows.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 16:09:39 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/23 17:07:52 by sfernand         ###   ########.fr       */
+/*   Created: 2023/01/12 16:25:14 by sfernand          #+#    #+#             */
+/*   Updated: 2023/01/23 17:16:32 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../so_long.h"
+#include <stdio.h>
 
-# include <mlx.h>
-# include <fcntl.h>
-# include "./get_next_line/get_next_line.h"
-# include "./ft_printf/ft_printf.h"
-# include "./libft/libft.h"
-
-typedef struct s_data
+void	put_map(int fd/*, void *mlx_ptr, void *win_ptr*/)
 {
-	int	life;
-	int	move;
-}	t_data;
+	char	*rand;
+	/*int		coordx;
+	int		coordy;
+	void	*img_ptr;*/
 
-void	put_map(int fd/*, void *mlx_ptr, void *win_ptr*/);
-#endif
+	/*coordx = 0;
+	coordy = 0;*/
+	rand = get_next_line(fd);
+	printf("%s", rand);
+	rand = get_next_line(fd);
+	printf("%s", rand);
+	while (rand != NULL)
+	{
+		rand = get_next_line(fd);
+		printf("%s", rand);
+	}
+}

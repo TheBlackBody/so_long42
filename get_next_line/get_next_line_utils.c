@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sfernand <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:21:51 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/06 19:23:35 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:09:58 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
 
+#include "./get_next_line.h"
 size_t	ft_strlen(const char *a)
 {
 	size_t	i;
@@ -88,4 +88,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(dest, n);
 	return (dest);
 }
-

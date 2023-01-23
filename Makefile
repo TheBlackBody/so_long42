@@ -6,7 +6,7 @@
 #    By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:25:14 by sfernand          #+#    #+#              #
-#    Updated: 2023/01/13 16:56:14 by sfernand         ###   ########.fr        #
+#    Updated: 2023/01/23 17:25:31 by sfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,30 +17,60 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-FILES = windows 
+FILES = main \
+		windows
 
+GNL_FILE = get_next_line \
+			get_next_line_utils
 
-SRCS_DIR = ./
+PRINTF_PATH = ./ft_printf/
+PRINTF_FILE = libftprintf.a
+
+LIBFT_PATH = ./libft/
+LIBFT_FILE = libft.a
+
+FTPRINTF_PRINTF = $(addprefix $(PRINTF_PATH), $(PRINTF_FILE))
+
+LIBFT_LIB = $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
+
+GNL_DIR = ./get_next_line/
+GNL = $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL_FILE)))
+
+OBJS_GNL_DIR = ./get_next_line/
+OBJS_GNL = $(addprefix $(OBJS_GNL_DIR), $(addsuffix .o, $(GNL_FILE)))
+
+SRCS_DIR = ./src/
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
 
-OBJS_DIR = ./
+OBJS_DIR = ./src/
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 
 
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
+.c.o: $(SRCS), $(GNL)
+	$(CC) $(CFLAGS) -D BUFFER_SIZE=1 -c -o $@ $<
 
-$(NAME): $(OBJS)
-	gcc $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework Appkit -o $(NAME)
+$(NAME): $(OBJS) $(OBJS_GNL)
+	make -sC $(LIBFT_PATH)
+	make -sC $(PRINTF_PATH)
+	gcc $(CFLAGS) $(OBJS) $(OBJS_GNL) $(LIBFT_LIB) $(FTPRINTF_PRINTF) -lmlx -framework OpenGL -framework Appkit -o $(NAME)
 
 all: $(NAME)
 
+ft_printf:
+	make -sC $(PRINTF_PATH)
+
+lib: 
+	@make -sC $(LIBFT_PATH)
+
 clean:
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS)
+	$(RM) $(OBJS_GNL)
+	@make clean -sC $(LIBFT_PATH)
+	@make clean -sC $(PRINTF_PATH)
 
 fclean: clean
 	$(RM) $(NAME)
-
+	make fclean -sC $(LIBFT_PATH)
+	make fclean -sC $(PRINTF_PATH)
+	
 re: clean all

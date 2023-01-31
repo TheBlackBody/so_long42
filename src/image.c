@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 15:34:51 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/27 17:43:03 by sfernand         ###   ########.fr       */
+/*   Created: 2023/01/27 15:12:30 by sfernand          #+#    #+#             */
+/*   Updated: 2023/01/31 09:24:46 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../so_long.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+t_image ft_new_sprite(void *mlx, char *path)
+{
+    t_image img;
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-char	*get_next_line(int fd);
-size_t	ft_strlen(const char *a);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	ft_bzero(void *p, size_t n);
-void	*ft_calloc(size_t count, size_t size);
-
-#endif
+    img.reference = mlx_xpm_file_to_image(mlx, path, &img.size.x, &img.size.y);
+    img.pixels  = mlx_get_data_addr(img.reference, &img.bits_per_pixel,
+     &img.line_size, &img.endian);
+    ft_printf("coucou");
+    return  (img);
+}

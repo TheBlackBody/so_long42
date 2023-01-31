@@ -6,7 +6,7 @@
 #    By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 10:25:14 by sfernand          #+#    #+#              #
-#    Updated: 2023/01/23 17:25:31 by sfernand         ###   ########.fr        #
+#    Updated: 2023/01/31 09:03:25 by sfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ AR = ar rcs
 RM = rm -f
 
 FILES = main \
-		windows
+		windows \
+		image
 
 GNL_FILE = get_next_line \
 			get_next_line_utils

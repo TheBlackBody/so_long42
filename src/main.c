@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:33:17 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/31 09:12:15 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/01/31 10:19:04 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,11 @@ int	main()
 	program.mlx = mlx_init();
 	program.window = ft_new_window(program.mlx, 1000, 1000, "so_long");
 	ft_printf("1\n");
-	program.sprite = ft_new_sprite(program.mlx, "/Users/sfernand/Desktop/cursus42/so_long/so_long/asset/brick.xpm");
-	ft_printf("2\n");
-	program.sprite_position.x = 0;
-	program.sprite_position.y = 0;
-	mlx_put_image_to_window(program.mlx, program.window.reference,
-		program.sprite.reference, program.sprite_position.x, program.sprite_position.y);
+	fd = open("map.ber", O_RDONLY);
+	background(program.mlx/*, fd*/);
+	close(fd);
 	mlx_loop(program.mlx);
+	return (0);
 }
 
 

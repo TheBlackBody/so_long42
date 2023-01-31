@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:09:39 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/31 09:06:24 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/01/31 10:19:16 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ typedef struct	s_program {
 
 //void		put_map(int fd, void *mlx_ptr);
 t_window	ft_new_window(void *mlx, int widht, int height, char *name);
+void		background(void *mlx/*, int fd*/);
 t_image 	ft_new_sprite(void *mlx, char *path);
 #endif

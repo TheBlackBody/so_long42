@@ -25,7 +25,7 @@ FILES = main \
 GNL_FILE = get_next_line \
 			get_next_line_utils
 
-PRINTF_PATH = ./ft_printf/
+PRINTF_PATH = ./printf/
 PRINTF_FILE = libftprintf.a
 
 LIBFT_PATH = ./libft/

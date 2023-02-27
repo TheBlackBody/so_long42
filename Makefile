@@ -28,7 +28,7 @@ GNL_FILE = get_next_line \
 PRINTF_PATH = ./printf/
 PRINTF_FILE = libftprintf.a
 
-LIBFT_PATH = ./libft/
+LIBFT_PATH = ./Libft1/
 LIBFT_FILE = libft.a
 
 MLX_PATH = ./mlx/

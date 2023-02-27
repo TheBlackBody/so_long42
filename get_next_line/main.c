@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 15:34:51 by sfernand          #+#    #+#             */
-/*   Updated: 2023/01/04 17:05:58 by sfernand         ###   ########.fr       */
+/*   Created: 2023/01/04 16:22:09 by sfernand          #+#    #+#             */
+/*   Updated: 2023/01/04 17:03:26 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "get_next_line.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+int main() 
+{
+	    int	fd = open("test", O_RDONLY);
+		char	*line;
 
-char	*get_next_line(int fd);
-size_t	ft_strlen(const char *a);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-void	ft_bzero(void *p, size_t n);
-void	*ft_calloc(size_t count, size_t size);
+		line = get_next_line(fd);
+		printf("%s", line);
+		line = get_next_line(fd);
+		printf("%s", line);
+		while (line != NULL)
+		{
+			line = get_next_line(fd);
+			printf("%s", line);
+		}
+		return (0);
+}
 
-#endif

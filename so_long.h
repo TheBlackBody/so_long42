@@ -13,10 +13,10 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+# include "./mlx/mlx.h"
 # include <fcntl.h>
 # include "./get_next_line/get_next_line.h"
-# include "./ft_printf/ft_printf.h"
+# include "./ft_printf/printf.h"
 # include "./libft/libft.h"
 
 typedef struct	s_vector
@@ -47,8 +47,7 @@ typedef struct	s_program {
 }				t_program;
 
 
-//void		put_map(int fd, void *mlx_ptr);
 t_window	ft_new_window(void *mlx, int widht, int height, char *name);
-void		background(void *mlx/*, int fd*/);
+char		**background(void *mlx, int fd, int x, int y);
 t_image 	ft_new_sprite(void *mlx, char *path);
 #endif

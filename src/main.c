@@ -18,14 +18,15 @@ int	main()
 	int			fd;
 	int			x;
 	int			y;
-	char		*line;
+	char			*line;
+	char			**tab;
 
 	fd = open("map.ber", O_RDONLY);
 	
 	line = get_next_line(fd);
-	ft_printf("%s", line);
-	x = strlen(line);
+	x = strlen(line) - 1;
 	y = 0;
+	tab = (char**)malloc(sizeof(char*) * x);
 	while (line != NULL)
 	{
 		y++;
@@ -33,10 +34,8 @@ int	main()
 	}
 	close(fd);
 	program.mlx = mlx_init();
-	program.window = ft_new_window(program.mlx, 1000, 1000, "so_long");
-	ft_printf("1\n");
 	fd = open("map.ber", O_RDONLY);
-	background(program.mlx/*, fd*/);
+	tab = background(program.mlx, fd, x, y);
 	close(fd);
 	mlx_loop(program.mlx);
 	return (0);

@@ -31,9 +31,14 @@ PRINTF_FILE = libftprintf.a
 LIBFT_PATH = ./libft/
 LIBFT_FILE = libft.a
 
+MLX_PATH = ./mlx/
+MLX_FILE = libmlx.a
+
 FTPRINTF_PRINTF = $(addprefix $(PRINTF_PATH), $(PRINTF_FILE))
 
 LIBFT_LIB = $(addprefix $(LIBFT_PATH), $(LIBFT_FILE))
+
+MLX_MLX = $(addprefix $(MLX_PATH), $(MLX_FILE))
 
 GNL_DIR = ./get_next_line/
 GNL = $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL_FILE)))
@@ -54,7 +59,8 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 $(NAME): $(OBJS) $(OBJS_GNL)
 	make -sC $(LIBFT_PATH)
 	make -sC $(PRINTF_PATH)
-	gcc $(CFLAGS) $(OBJS) $(OBJS_GNL) $(LIBFT_LIB) $(FTPRINTF_PRINTF) -lmlx -framework OpenGL -framework Appkit -o $(NAME)
+	make -sC $(MLX_PATH)
+	gcc $(CFLAGS) $(OBJS) $(OBJS_GNL) $(LIBFT_LIB) $(FTPRINTF_PRINTF) $(MLX_MLX) -lmlx -framework OpenGL -framework Appkit -o $(NAME)
 
 all: $(NAME)
 
@@ -69,10 +75,12 @@ clean:
 	$(RM) $(OBJS_GNL)
 	@make clean -sC $(LIBFT_PATH)
 	@make clean -sC $(PRINTF_PATH)
+	@make clean -sC $(MLX_PATH)
 
 fclean: clean
 	$(RM) $(NAME)
 	make fclean -sC $(LIBFT_PATH)
 	make fclean -sC $(PRINTF_PATH)
+	make fclean -sC $(MLX_PATH)
 	
 re: clean all

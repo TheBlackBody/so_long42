@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 09:31:19 by sfernand          #+#    #+#             */
-/*   Updated: 2023/02/28 12:22:27 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/02/28 14:54:20 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void	suite_verif(void *mlx, t_program program, void *window, char c)
 	}
 	if (c == 'P')
 	{
-		program.sprite = ft_new_sprite(mlx, "./asset/player.xpm");
+		program.sprite = ft_new_sprite(mlx, "./asset/grass.xpm");
+		mlx_put_image_to_window(mlx, window, program.sprite.reference,
+			program.sprite_position.x, program.sprite_position.y);
+		program.sprite = ft_new_sprite(mlx, "./asset/snail.xpm");
 		mlx_put_image_to_window(mlx, window, program.sprite.reference,
 			program.sprite_position.x, program.sprite_position.y);
 	}
@@ -44,7 +47,10 @@ void	verif(void *mlx, void *window, char c, t_program program)
 	}
 	if (c == 'C')
 	{
-		program.sprite = ft_new_sprite(mlx, "./asset/item.xpm");
+		program.sprite = ft_new_sprite(mlx, "./asset/grass.xpm");
+		mlx_put_image_to_window(mlx, window, program.sprite.reference,
+			program.sprite_position.x, program.sprite_position.y);
+		program.sprite = ft_new_sprite(mlx, "./asset/diamond.xpm");
 		mlx_put_image_to_window(mlx, window, program.sprite.reference,
 			program.sprite_position.x, program.sprite_position.y);
 	}

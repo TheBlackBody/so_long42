@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:33:17 by sfernand          #+#    #+#             */
-/*   Updated: 2023/02/28 13:36:29 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:12:07 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	main(int argc, char **argv)
 	tab = background(program.mlx,
 			program.window.size.x, program.window.size.y);
 	close(fd);
+	move(tab, program.mlx, program.window.reference, program);
 	mlx_loop(program.mlx);
 	return (0);
 }

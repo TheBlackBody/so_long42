@@ -22,6 +22,16 @@ void    update_sprite_player(t_program program, void *window, void *mlx)
 int ft_input(int key, void *param)
 {
     t_program *program = (t_program *)param;
+	if (key == 6)
+                program->sprite_position.x = program->sprite.size.x;
+        else if (key == 1)
+                program->sprite_position.x -= program->sprite.size.x;
+        else if (key == 12)
+                program->sprite_position.y += program->sprite.size.y;
+        else if (key == 2)
+                program->sprite_position.y -= program->sprite.size.y;
+        
+        update(program, window, mlx)
 }
 
 void move(char **tab, void *mlx, void *window, t_program program)

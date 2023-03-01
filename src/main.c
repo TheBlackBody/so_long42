@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 09:33:17 by sfernand          #+#    #+#             */
-/*   Updated: 2023/02/28 16:12:07 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:00:39 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ int	main(int argc, char **argv)
 	tab = (char **)malloc(sizeof (char *) * program.window.size.x);
 	close(fd);
 	program.mlx = mlx_init();
-	tab = background(program.mlx,
-			program.window.size.x, program.window.size.y);
+	program.window = ft_new_window(program.mlx, program.window.size.x * 32, program.window.size.y * 32, "so_long");
+	tab = background(program.mlx, 
+			program.window.size.x, program);
 	close(fd);
-	move(tab, program.mlx, program.window.reference, program);
+	move(tab, program.mlx, program.window.reference, program, strlen(tab[0]) - 1);
 	mlx_loop(program.mlx);
 	return (0);
 }

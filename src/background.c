@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 09:31:19 by sfernand          #+#    #+#             */
-/*   Updated: 2023/02/28 14:54:20 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:12:06 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,11 @@ char	**next_background(t_program program, void *mlx,
 	return (tab);
 }
 
-char	**background(void *mlx, int x, int y)
+char	**background(void *mlx, int x, t_program program)
 {
-	t_program	program;
 	char		**tab;
 
 	tab = (char **) malloc (sizeof (char *) * x);
-	program.window = ft_new_window(mlx, x * 32, y * 32, "so_long");
 	program.sprite_position.x = 0;
 	program.sprite_position.y = 0;
 	return (next_background(program, mlx, tab, x));

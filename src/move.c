@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:24:24 by sfernand          #+#    #+#             */
-/*   Updated: 2023/03/01 17:12:30 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:23:05 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,19 @@ void    update_sprite_player(t_program program, void *window, void *mlx)
 int ft_input(int key, void *param)
 {
     t_program *program = (t_program *)param;
-	if (key == 6)
+	if (key == 13)
                 program->sprite_position.x += program->sprite.size.x;
         else if (key == 1)
                 program->sprite_position.x -= program->sprite.size.x;
-        else if (key == 12)
+        else if (key == 0)
                 program->sprite_position.y += program->sprite.size.y;
         else if (key == 2)
                 program->sprite_position.y -= program->sprite.size.y;
+        ft_printf("%d\n", key);
         return (0);
 }
 
-void move(char **tab, void *mlx, void *window, t_program program, int i)
+void move(char **tab/*, void *mlx*/, t_program program, int i)
 {
     int x;
     int y;
@@ -42,19 +43,15 @@ void move(char **tab, void *mlx, void *window, t_program program, int i)
     y = 0;
     program.sprite_position.x = 0;
     program.sprite_position.y = 0;
-    while (tab[y][x] != 'P')
+    ft_printf("%d\n", i);
+    while (x != i && tab[y][x] != 'P')
     {
-        ft_printf("%d\n", i);
-        while (x != i && tab[y][x] != 'P')
+        x++;
+        if (x == i)
         {
-                ft_printf("%d:", x);
-                ft_printf(" %c\n", tab[y][x]);
-                x++;
+                x = 0;
+                y++;
         }
-        x = 0;
-        y++;
     }
-    ft_printf("1");
-    mlx_key_hook(window, ft_input, &program);
-    update_sprite_player(program, window, mlx);
+    mlx_key_hook(program.window.reference, ft_input, &program);
 }

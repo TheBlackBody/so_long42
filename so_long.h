@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:09:39 by sfernand          #+#    #+#             */
-/*   Updated: 2023/03/01 16:36:37 by sfernand         ###   ########.fr       */
+/*   Updated: 2023/03/03 16:11:28 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,8 @@ typedef struct	s_program {
 	t_image		sprite;
 	t_vector	sprite_position;
 }				t_program;
-
-
 t_window	ft_new_window(void *mlx, int widht, int height, char *name);
 char		**background(void *mlx, int x, t_program program);
 t_image 	ft_new_sprite(void *mlx, char *path);
-void 		move(char **tab, void *mlx, void *window, t_program program, int x);
+void 		move(char **tab/*, void *mlx*/, t_program program, int x);
 #endif
